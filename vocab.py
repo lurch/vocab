@@ -4,7 +4,6 @@ import random
 
 iterations = 100
 correction_factor = 6.75
-x = 0
 recognised = 0
 unknown_words = []
 
@@ -13,8 +12,8 @@ results = list(open("wordlist.txt", "r"))
 clean_lines = [x.strip() for x in results] # remove /n line ends
 lines = len(clean_lines)
 
-while x < iterations:
-    selection = random.randint(0, lines)
+for x in range(iterations):
+    selecton = random.randint(0, lines)
     print (clean_lines[selection])
     if x % 10 == 0:
         answer = input("<Enter> = recognise, anything else = don't recognise")
@@ -24,7 +23,6 @@ while x < iterations:
         recognised += 1
     else:
         unknown_words.append(clean_lines[selection])
-    x += 1
 
 vocab = int(recognised / float(iterations) * lines)
 
